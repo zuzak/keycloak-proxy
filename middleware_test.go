@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/coreos/go-oidc/jose"
+	"github.com/gambol99/go-oidc/jose"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )

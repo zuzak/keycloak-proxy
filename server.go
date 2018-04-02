@@ -32,8 +32,8 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/armon/go-proxyproto"
-	"github.com/coreos/go-oidc/jose"
-	"github.com/coreos/go-oidc/oidc"
+	"github.com/gambol99/go-oidc/jose"
+	"github.com/gambol99/go-oidc/oidc"
 	"github.com/elazarl/goproxy"
 	"github.com/gin-gonic/gin"
 )

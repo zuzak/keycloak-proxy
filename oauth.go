@@ -19,9 +19,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/coreos/go-oidc/jose"
-	"github.com/coreos/go-oidc/oauth2"
-	"github.com/coreos/go-oidc/oidc"
+	"github.com/gambol99/go-oidc/jose"
+	"github.com/gambol99/go-oidc/oauth2"
+	"github.com/gambol99/go-oidc/oidc"
 )
 
 //
