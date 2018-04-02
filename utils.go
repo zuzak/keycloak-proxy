@@ -131,11 +131,11 @@ func createOpenIDClient(cfg *Config) (*oidc.Client, oidc.ProviderConfig, error) 
 	var err error
 	var providerConfig oidc.ProviderConfig
 
-	// step: fix up the url if required, the underlining lib will add the .well-known/openid-configuration to the discovery url for us.
+	// fix up the url if required, the underlining lib will add the .well-known/openid-configuration to the discovery url for us.
 	if strings.HasSuffix(cfg.DiscoveryURL, "/.well-known/openid-configuration") {
 		cfg.DiscoveryURL = strings.TrimSuffix(cfg.DiscoveryURL, "/.well-known/openid-configuration")
 	}
-	// step: attempt to retrieve the provider configuration
+	// attempt to retrieve the provider configuration
 	for i := 0; i < 3; i++ {
 		log.Infof("attempting to retrieve the openid configuration from the discovery url: %s", cfg.DiscoveryURL)
 		providerConfig, err = oidc.FetchProviderConfig(http.DefaultClient, cfg.DiscoveryURL)
@@ -156,6 +156,7 @@ GOT_CONFIG:
 			Secret: cfg.ClientSecret,
 		},
 		RedirectURL: fmt.Sprintf("%s/oauth/callback", cfg.RedirectionURL),
+        SkipClientIDCheck: cfg.SkipClientID,
 		Scope:       append(cfg.Scopes, oidc.DefaultScope...),
 	})
 	if err != nil {

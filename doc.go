@@ -141,6 +141,8 @@ type Config struct {
 	TLSCaCertificate string `json:"tls-ca-certificate" yaml:"tls-ca-certificate"`
 	// SkipUpstreamTLSVerify skips the verification of any upstream tls
 	SkipUpstreamTLSVerify bool `json:"skip-upstream-tls-verify" yaml:"skip-upstream-tls-verify"`
+    // SkipClientID indicates we don't need to check the client id of the token
+    SkipClientID bool `json:"skip-client-id" yaml:"skip-client-id" usage:"skip the check on the client token"`
 
 	// CrossOrigin permits adding headers to the /oauth handlers
 	CrossOrigin CORS `json:"cors" yaml:"cors"`
