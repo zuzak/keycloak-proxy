@@ -81,7 +81,7 @@ func (r *oauthProxy) metricsMiddleware() gin.HandlerFunc {
 	)
 
 	// step: register the metric with prometheus
-	prometheus.MustRegisterOrGet(statusMetrics)
+	prometheus.MustRegister(statusMetrics)
 
 	return func(cx *gin.Context) {
 		// step: permit to next stage
@@ -353,6 +353,7 @@ func (r *oauthProxy) admissionMiddleware() gin.HandlerFunc {
 		log.WithFields(log.Fields{
 			"access":   "permitted",
 			"email":    user.email,
+            "client":   user.audience,
 			"resource": resource.URL,
 			"expires":  user.expiresAt.Sub(time.Now()).String(),
 		}).Debugf("access permitted to resource")
